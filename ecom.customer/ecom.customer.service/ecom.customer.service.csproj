@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ecom.customer.application\ecom.customer.application.csproj" />
     <ProjectReference Include="..\ecom.customer.database\ecom.customer.database.csproj" />
   </ItemGroup>

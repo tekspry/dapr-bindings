@@ -22,7 +22,6 @@ namespace ecom.order.application.Order
         }
         public async Task<ecom.order.domain.Order.Order> AddAsync(ecom.order.domain.Order.Order order)
         {   
-
             var productPrice = await _productService.UpdateProductQuantity(order.ProductId, order.ProductCount);
             logger.LogInformation($"product quantity updated for product: {order.ProductId}");
             order.OrderId = Guid.NewGuid().ToString();            

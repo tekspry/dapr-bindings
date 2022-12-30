@@ -4,6 +4,7 @@
     {
         public string? OrderId { get; set; }
         public string? ProductId { get; set; }
+        public string? CustomerId { get; set; }
         public int ProductCount { get; set; }
         public int OrderPrice { get; set; }
         public OrderState OrderState { get; set; }
