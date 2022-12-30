@@ -25,8 +25,6 @@ app.UseCors(p => p.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAn
 
 app.UseAuthorization();
 
-app.MapControllers();
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapSubscribeHandler();
