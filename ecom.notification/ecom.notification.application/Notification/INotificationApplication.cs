@@ -4,6 +4,6 @@ namespace ecom.notification.application.Notification
 {
     public interface INotificationApplication
     {
-        Task<Order> SendAsync(Order order);
+        Task SendNotificationAsync(Order order);
     }
 }

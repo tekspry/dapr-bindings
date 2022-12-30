@@ -1,0 +1,42 @@
+﻿using Dapr.Client;
+using ecom.notification.domain.Notification;
+using Microsoft.Extensions.Logging;
+
+namespace ecom.notification.infrastructure.Services.Email
+{
+    public class EmailService
+    {
+        private readonly DaprClient _daprClient;
+        private readonly ILogger<EmailService> _logger;
+
+        public EmailService(DaprClient daprClient, ILogger<EmailService> logger)
+        {
+            this._daprClient = daprClient;
+            this._logger = logger;
+        }
+
+        public async Task SendEmailForOrder(OrderForNotfication order)
+        {
+            _logger.LogInformation($"Received a new order, orderid {order.OrderDetails.OrderId} for {order.CustomerDetails.Email}");
+
+            var metadata = new Dictionary<string, string>
+            {
+                ["emailFrom"] = "noreply@tekspry.com",
+                ["emailTo"] = order.CustomerDetails.Email,
+                ["subject"] = $"Thank you for your order - Order Id = {order.OrderDetails.OrderId}"
+            };
+            var body = $"<h2>Hi {order.CustomerDetails.Name}</h2>"
+                + $"<p>Your order (order id - {order.OrderDetails.OrderId}) has been received and will be delivered " +
+                $"to {order.CustomerDetails.Address.Address}, {order.CustomerDetails.Address.City} - {order.CustomerDetails.Address.PostalCode}, {order.CustomerDetails.Address.Country}  " +
+                $"within 2 days.</p>"
+                + $"</br><p><b>Order Details:</b></p>"
+                + $"</br>Product Name - {order.ProductDetails.Name}"
+                + $"</br>Product Desc - {order.ProductDetails.Description}"
+                + $"</br>Price - {order.OrderDetails.OrderPrice}" +
+                $"</br>Quantity - {order.OrderDetails.ProductCount}"
+                + $"</br>Thanks, </br>Team TekSpry";
+
+            await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
+        }
+    }
+}

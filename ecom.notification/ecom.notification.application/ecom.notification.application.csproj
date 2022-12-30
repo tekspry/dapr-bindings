@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ecom.notification.domain\ecom.notification.domain.csproj" />
+    <ProjectReference Include="..\ecom.notification.infrastructure\ecom.notification.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
