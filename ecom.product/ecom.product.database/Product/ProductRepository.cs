@@ -24,7 +24,7 @@ namespace ecom.product.database.ProductDB
             var @product = products.FirstOrDefault(e => e.ProductId == productId);
             if (@product == null)
             {
-                throw new InvalidOperationException("Event not found");
+                throw new InvalidOperationException("product not found");
             }
             return @product;
         }

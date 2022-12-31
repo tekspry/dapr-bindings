@@ -14,7 +14,7 @@ namespace ecom.notification.application.Notification
         private readonly ICustomerService _customerService;
         private readonly IEmailService _emailService;
         private readonly DaprClient _daprClient;
-        private readonly ILogger<NotificationApplication> logger;
+        private readonly ILogger<NotificationApplication> _logger;
 
         public NotificationApplication(IProductService productService, ICustomerService customerService, IEmailService emailService, DaprClient daprClient, ILogger<NotificationApplication> logger)
         {
@@ -22,7 +22,7 @@ namespace ecom.notification.application.Notification
             this._customerService = customerService;
             this._daprClient = daprClient;
             this._emailService = emailService;
-            this.logger = logger;
+            this._logger = logger;
         }
         public async Task SendNotificationAsync(Order order)
         {
@@ -31,6 +31,7 @@ namespace ecom.notification.application.Notification
 
             var orderForNotification = new OrderForNotfication(order, customerDetails, productDetails);
 
+            _logger.LogInformation($"Invoking SendEmailForOrder from Notification application class");
             await _emailService.SendEmailForOrder(orderForNotification);
         }
     }

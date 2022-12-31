@@ -1,11 +1,14 @@
 using Dapr.Client;
+using ecom.notification.application.Notification;
 using ecom.notification.infrastructure.Services.Customer;
+using ecom.notification.infrastructure.Services.Email;
 using ecom.notification.infrastructure.Services.Product;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<INotificationApplication, NotificationApplication>();
+builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddControllers().AddDapr(); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

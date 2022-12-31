@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ecom.notification.infrastructure.Services.Email
 {
-    public class EmailService
+    public class EmailService:IEmailService
     {
         private readonly DaprClient _daprClient;
         private readonly ILogger<EmailService> _logger;
@@ -21,7 +21,7 @@ namespace ecom.notification.infrastructure.Services.Email
 
             var metadata = new Dictionary<string, string>
             {
-                ["emailFrom"] = "noreply@tekspry.com",
+                ["emailFrom"] = "gagan1983@gmail.com",
                 ["emailTo"] = order.CustomerDetails.Email,
                 ["subject"] = $"Thank you for your order - Order Id = {order.OrderDetails.OrderId}"
             };
@@ -36,7 +36,12 @@ namespace ecom.notification.infrastructure.Services.Email
                 $"</br>Quantity - {order.OrderDetails.ProductCount}"
                 + $"</br>Thanks, </br>Team TekSpry";
 
+            _logger.LogInformation($"created email body for orderid {order.OrderDetails.OrderId} for {order.CustomerDetails.Email}");
+
+            _logger.LogInformation($"Invoking output binding for sending email from Email service class");
+
             await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
+            _logger.LogInformation($"Output binding invoked for sending email from Email service class");
         }
     }
 }

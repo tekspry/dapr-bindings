@@ -8,5 +8,6 @@
         public int ProductCount { get; set; }
         public int OrderPrice { get; set; }
         public OrderState OrderState { get; set; }
+        public DateTime OrderPlacedAt { get; set; }
     }
 }

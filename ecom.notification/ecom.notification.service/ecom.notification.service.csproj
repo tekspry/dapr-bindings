@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ecom.notification.application\ecom.notification.application.csproj" />
     <ProjectReference Include="..\ecom.notification.domain\ecom.notification.domain.csproj" />
     <ProjectReference Include="..\ecom.notification.infrastructure\ecom.notification.infrastructure.csproj" />
   </ItemGroup>
