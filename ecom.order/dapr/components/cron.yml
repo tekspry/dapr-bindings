@@ -1,7 +1,7 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: UpdateOrderPaymentPending
+  name: scheduled
   namespace: default
 spec:
   type: bindings.cron
@@ -11,3 +11,4 @@ spec:
     value: "@every 1m" # valid cron schedule
 scopes:
 - order
+    

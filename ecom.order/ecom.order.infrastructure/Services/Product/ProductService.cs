@@ -17,5 +17,12 @@ namespace ecom.order.infrastructure.Product
 
             return Convert.ToInt32(productPrice);
         }
+
+        public async Task<domain.Product.Product> GetProductAsync(string productId)
+        {
+            var response = await client.GetAsync($"product/{productId}");
+            return await response.ReadContentAs<domain.Product.Product>();
+
+        }
     }
 }

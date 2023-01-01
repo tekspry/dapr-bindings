@@ -4,9 +4,10 @@ namespace ecom.order.application.Order
 {
     public interface IOrderApplication
     {
+        Task<IEnumerable<domain.Order.Order>> ListAsync();
         Task<domain.Order.Order> AddAsync(domain.Order.Order order);
         Task<domain.Order.Order> GetAsync(string id);
-
-        Task UpdateOrderPaymentPending();
+        Task UpdateAsync(domain.Order.Order order);
+        Task<int> UpdateOrderPaymentPending();
     }
 }
