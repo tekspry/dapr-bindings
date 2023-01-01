@@ -2,6 +2,6 @@
 {
     public interface IProductService
     {
-        Task<ecom.notification.domain.Product.Product> GetProductAsync(string productId);
+        Task<notification.domain.Product.Product> GetProductAsync(string productId);
     }
 }

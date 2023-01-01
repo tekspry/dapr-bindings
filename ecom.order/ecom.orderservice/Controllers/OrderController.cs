@@ -32,7 +32,10 @@ namespace ecom.order.service.Controllers
         //}
 
         [HttpGet(Name = "GetOrders")]
-        public async Task<IEnumerable<Order>> GetAll() => await _orderApplication.ListAsync();
+        public async Task<IEnumerable<OrderDetails>> GetAll() => await _orderApplication.ListOrderDetailsAsync();
+
+        //[HttpGet("GetOrderDetails", Name = "GetOrderDetails")]
+        //public async Task<IEnumerable<OrderDetails>> GetAllOrderDetails() => await _orderApplication.ListOrderDetailsAsync();
 
         [HttpPut(Name = "UpdateOrder")]
         public async Task Update(Order order) => await _orderApplication.UpdateAsync(order);

@@ -1,8 +1,9 @@
 import { Customer } from "./customer";
 import { Order } from "./order"; 
+import { Product } from "./product";
 
 export type OrderDetails ={
-    orderDate: Date;
+    order: Order;
     customerDetails: Customer;
-    orders: Array<Order>[];
+    productDetails: Product;
 }

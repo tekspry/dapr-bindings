@@ -23,6 +23,8 @@ namespace ecom.order.application.Order
 
         public async Task<IEnumerable<domain.Order.Order>> ListAsync() => await _orderRepository.GetOrders();
 
+        public async Task<IEnumerable<domain.Order.OrderDetails>> ListOrderDetailsAsync() => await _orderRepository.GetOrderDetails();
+
         public async Task<domain.Order.Order> AddAsync(domain.Order.Order order)
         {   
             var productPrice = await _productService.UpdateProductQuantity(order.ProductId, order.ProductCount);

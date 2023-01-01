@@ -1,7 +1,9 @@
 using Dapr.Client;
+using ecom.order.infrastructure.Services.Customer;
 using ecom.order.application.Order;
 using ecom.order.database.order;
 using ecom.order.infrastructure.Product;
+//using ecom.order.infrastructure.Services.Customer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,8 @@ builder.Services.AddDaprClient();
 // Using the DAPR SDK to create a DaprClient, in stead of fiddling with URI's our selves
 builder.Services.AddSingleton<IProductService>(sc =>
     new ProductService(DaprClient.CreateInvokeHttpClient("product")));
+builder.Services.AddSingleton<ICustomerService>(sc =>
+    new CustomerService(DaprClient.CreateInvokeHttpClient("customer")));
 
 var app = builder.Build();
 

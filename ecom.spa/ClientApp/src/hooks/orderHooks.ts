@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import Config from "../config";
 import { Order } from "../types/order";
 import Problem from "../types/problem";
+import { OrderDetails } from "../types/orderDetails";
 
 const useAddOrder = () => {
     const queryClient = useQueryClient();
@@ -18,5 +19,13 @@ const useAddOrder = () => {
         }
       );
 }
+
+const useFetchorderDetails = () => {
+  return useQuery<OrderDetails[], AxiosError>("products",  () =>
+    axios.get(`${Config.baseProductApiUrl}/product`).then((resp) => resp.data)
+  );
+};
+
+
 
 export { useAddOrder };

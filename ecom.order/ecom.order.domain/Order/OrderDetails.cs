@@ -1,7 +1,10 @@
-﻿using ecom.order.domain.Customers;
-
-namespace ecom.order.domain.Order
+﻿namespace ecom.order.domain.Order
 {
-    public record OrderDetails(Customer customerDetails, IEnumerable<Order> orders);
-    
+    public class OrderDetails
+    {
+        public Order? order { get; set; }
+        public Product.Product? ProductDetails { get; set; }
+        public Customer.Customer? CustomerDetails { get; set; }       
+    }
+
 }

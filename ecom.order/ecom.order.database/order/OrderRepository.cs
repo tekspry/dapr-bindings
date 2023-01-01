@@ -1,5 +1,7 @@
 ﻿using Dapr.Client;
 using ecom.order.domain.Order;
+using ecom.order.infrastructure.Product;
+using ecom.order.infrastructure.Services.Customer;
 using Microsoft.Extensions.Logging;
 
 namespace ecom.order.database.order
@@ -7,12 +9,16 @@ namespace ecom.order.database.order
     public class OrderRepository : IOrderRepository
     {
         private List<Order> orders = new List<Order>();
+        private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
         private readonly DaprClient daprClient;
         private readonly ILogger<OrderRepository> logger;
         private const string cacheStoreName = "ordercache";
 
-        public OrderRepository(DaprClient daprClient, ILogger<OrderRepository> logger)
+        public OrderRepository(ICustomerService customerService, IProductService productService,DaprClient daprClient, ILogger<OrderRepository> logger)
         {
+            this._customerService = customerService;
+            this._productService = productService;
             this.daprClient = daprClient;
             this.logger = logger;
         }
@@ -23,6 +29,27 @@ namespace ecom.order.database.order
             var orderList = await daprClient.GetStateAsync<List<Order>>(cacheStoreName, key);
 
             return orderList;
+        }
+
+        public async Task<IEnumerable<OrderDetails>> GetOrderDetails()
+        {
+            var key = $"orderlist";
+            var orderList = await daprClient.GetStateAsync<List<Order>>(cacheStoreName, key);
+            var orders = new List<OrderDetails>();
+
+            foreach (var order in orderList)
+            {
+                var customerDetails = await _customerService.GetCustomerAsync(order.CustomerId);
+                var productDetails = await _productService.GetProductAsync(order.ProductId);
+                orders.Add(new OrderDetails()
+                {
+                    order = order,
+                    CustomerDetails = customerDetails,
+                    ProductDetails = productDetails
+                });
+            }
+
+            return orders;
         }
         public async Task<Order> CreateOrder(Order order)
         {

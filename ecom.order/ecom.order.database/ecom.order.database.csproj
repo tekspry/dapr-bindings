@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ecom.order.domain\ecom.order.domain.csproj" />
+    <ProjectReference Include="..\ecom.order.infrastructure\ecom.order.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

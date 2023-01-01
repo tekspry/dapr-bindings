@@ -5,6 +5,7 @@ namespace ecom.order.database.order
     public interface IOrderRepository
     {
         Task<IEnumerable<Order>> GetOrders();
+        Task<IEnumerable<OrderDetails>> GetOrderDetails();
         Task<Order> CreateOrder(Order order);
         Task<Order> GetOrderById(string orderId);
         Task UpdateAsync(Order order);
