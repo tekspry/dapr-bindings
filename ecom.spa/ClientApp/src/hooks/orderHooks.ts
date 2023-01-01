@@ -20,12 +20,12 @@ const useAddOrder = () => {
       );
 }
 
-const useFetchorderDetails = () => {
-  return useQuery<OrderDetails[], AxiosError>("products",  () =>
-    axios.get(`${Config.baseProductApiUrl}/product`).then((resp) => resp.data)
+const useFetchOrderDetails = () => {
+  return useQuery<OrderDetails[], AxiosError>("orders",  () =>
+    axios.get(`${Config.baseProductApiUrl}/order`).then((resp) => resp.data)
   );
 };
 
 
 
-export { useAddOrder };
+export { useAddOrder, useFetchOrderDetails };
