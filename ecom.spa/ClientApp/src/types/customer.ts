@@ -5,5 +5,5 @@ export type Customer = {
     name: string;
     email: string;
     contactNumber: number;
-    address: CustomerAddress;
+    address: string;
 }

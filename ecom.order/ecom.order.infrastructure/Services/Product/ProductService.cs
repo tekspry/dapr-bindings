@@ -21,7 +21,20 @@ namespace ecom.order.infrastructure.Product
         public async Task<domain.Product.Product> GetProductAsync(string productId)
         {
             var response = await client.GetAsync($"product/{productId}");
-            return await response.ReadContentAs<domain.Product.Product>();
+            //return await response.ReadContentAs<domain.Product.Product>();
+
+            var result = new domain.Product.Product();
+            try
+            {
+                result = await response.ReadContentAs<domain.Product.Product>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
+            return result;
 
         }
     }

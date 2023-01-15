@@ -5,5 +5,5 @@ export type Order = {
     productId: string;
     customerId: string;
     productCount: number;   
-    orderStatus: OrderState; 
+    orderState: OrderState; 
 }

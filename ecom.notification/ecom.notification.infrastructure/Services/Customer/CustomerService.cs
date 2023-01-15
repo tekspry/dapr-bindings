@@ -13,6 +13,8 @@ namespace ecom.notification.infrastructure.Services.Customer
         public async Task<CustomerDetails> GetCustomerAsync(string customerId)
         {
             var response = await client.GetAsync($"customer/{customerId}");
+            Console.WriteLine($"request from notification to customer service --------------> {response.RequestMessage.RequestUri.ToString}");
+            //await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return await response.ReadContentAs<CustomerDetails>();
         }
     }

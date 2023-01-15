@@ -12,7 +12,18 @@ namespace ecom.order.infrastructure.Services.Customer
         public async Task<ecom.order.domain.Customer.Customer> GetCustomerAsync(string customerId)
         {
             var response = await client.GetAsync($"customer/{customerId}");
-            return await response.ReadContentAs<ecom.order.domain.Customer.Customer>();
+            var result = new ecom.order.domain.Customer.Customer();
+            try
+            {
+                result = await response.ReadContentAs<ecom.order.domain.Customer.Customer>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            
+            return result;
         }
     }
 }

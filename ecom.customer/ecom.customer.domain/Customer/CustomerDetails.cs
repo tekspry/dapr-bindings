@@ -7,6 +7,6 @@
         public string Email { get; set; } = String.Empty;
         public int ContactNumber { get; set; }
         public CustomerAddress? Address { get; set; }
-        public CustomerPaymentDetails? Payments { get; set; }
+        //public CustomerPaymentDetails? Payments { get; set; }
     }
 }

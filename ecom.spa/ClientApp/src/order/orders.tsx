@@ -13,10 +13,10 @@ const Orders = ({ product }: Args) => {
     const emptyOrder = {
         orderId: "",
         productId: product.productId,
-        customerId: "",
+        customerId: "0787e3c6-5886-4c73-bbef-81f5bf79967b",
         productCount: 0,
         orderPrice: product.price * product.quantity,
-        orderStatus: OrderState.OrderPlaced,
+        orderState: OrderState.OrderPlaced,
     }
 
     const [orderItem, setOrder] = useState<Order>(emptyOrder);

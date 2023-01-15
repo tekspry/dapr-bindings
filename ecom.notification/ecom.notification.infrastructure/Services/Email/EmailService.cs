@@ -40,8 +40,16 @@ namespace ecom.notification.infrastructure.Services.Email
 
             _logger.LogInformation($"Invoking output binding for sending email from Email service class");
 
-            await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
-            _logger.LogInformation($"Output binding invoked for sending email from Email service class");
+            try
+            {
+                await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
+                _logger.LogInformation($"Output binding invoked for sending email from Email service class");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"Error: Output binding invokation failed for sending email from email service");
+            }
+            
         }
     }
 }

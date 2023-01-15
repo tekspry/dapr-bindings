@@ -30,6 +30,7 @@ namespace ecom.order.Extensions
                 throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
 
             var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            Console.Write($"from order api ==========> {dataAsString}");
 
             return JsonSerializer.Deserialize<T>(dataAsString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
         }

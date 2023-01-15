@@ -22,7 +22,7 @@ const useAddOrder = () => {
 
 const useFetchOrderDetails = () => {
   return useQuery<OrderDetails[], AxiosError>("orders",  () =>
-    axios.get(`${Config.baseProductApiUrl}/order`).then((resp) => resp.data)
+    axios.get(`${Config.baseOrderApiUrl}/order`).then((resp) => resp.data)
   );
 };
 

@@ -80,7 +80,7 @@ namespace ecom.customer.database.Customer
                 Email = "gagan1983@gmail.com",
                 ContactNumber = 0111111111,
                 Address = new CustomerAddress("test addr 1", "New Delhi", "123xyz", "India"),
-                Payments = new CustomerPaymentDetails()
+                //Payments = new CustomerPaymentDetails()
 
             });
 
@@ -91,7 +91,7 @@ namespace ecom.customer.database.Customer
                 Email = "gagan1983@gmail.com",
                 ContactNumber = 0111111111,
                 Address = new CustomerAddress("test addr 2", "New Delhi", "345xyz", "India"),
-                Payments = new CustomerPaymentDetails()
+                //Payments = new CustomerPaymentDetails()
 
             });
 
@@ -102,7 +102,7 @@ namespace ecom.customer.database.Customer
                 Email = "gagan1983@gmail.com",
                 ContactNumber = 0111111111,
                 Address = new CustomerAddress("test addr 3", "New Delhi", "345xyz", "India"),
-                Payments = new CustomerPaymentDetails()
+                //Payments = new CustomerPaymentDetails()
 
             });
 
