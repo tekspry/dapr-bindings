@@ -94,6 +94,29 @@ namespace ecom.order.database.order
 
             await this.SaveOrderListToCacheStore(orders);
         }
+        public async Task DeleteAsync(string orderId)
+        {
+            var key = $"orderlist";
+            var orders = await daprClient.GetStateAsync<List<Order>>(cacheStoreName, key);
+
+            var updatedOrder = orders.Where(x => x.OrderId == orderId).FirstOrDefault();
+
+            if (updatedOrder != null)
+            {
+                orders.Remove(updatedOrder);
+            }
+
+            await this.SaveOrderListToCacheStore(orders);
+        }
+        public async Task DeleteAllAsync()
+        {   
+            var key = $"orderlist";
+            var orders = await daprClient.GetStateAsync<List<Order>>(cacheStoreName, key);
+            orders.RemoveAll(orders.Contains);
+            await this.SaveOrderListToCacheStore(orders);
+        }
+
+
         private async Task SaveOrderListToCacheStore(List<Order> orders)
         {
             var key = $"orderlist";

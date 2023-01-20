@@ -32,9 +32,8 @@ namespace ecom.notification.infrastructure.Extensions
                     throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
 
                 var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                Console.Write($"from notification api ==========> {dataAsString}");
 
-                return JsonSerializer.Deserialize<T>(dataAsString.FirstOrDefault(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                return JsonSerializer.Deserialize<T>(dataAsString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
             }
             catch (Exception ex) {
                 throw new ApplicationException(ex.Message);                

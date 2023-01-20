@@ -10,5 +10,7 @@ namespace ecom.order.application.Order
         Task<domain.Order.Order> GetAsync(string id);
         Task UpdateAsync(domain.Order.Order order);
         Task<int> UpdateOrderPaymentPending();
+        Task DeleteAsync(string id);
+        Task DeleteAllAsync();
     }
 }

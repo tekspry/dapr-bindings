@@ -24,20 +24,16 @@ namespace ecom.order.service.Controllers
         [HttpGet("{id}", Name = "GetById")]
         public async Task<Order> GetById(string id) => await _orderApplication.GetAsync(id);
 
-        //[HttpPut(Name = "UpdateOrderPaymentPending")]
-        //public async Task UpdateOrderPaymentPending()
-        //{
-        //    _logger.LogInformation("scheduled microservice UpdateOrderPaymentPending is called");
-        //    await _orderApplication.UpdateOrderPaymentPending();
-        //}
-
         [HttpGet(Name = "GetOrders")]
         public async Task<IEnumerable<OrderDetails>> GetAll() => await _orderApplication.ListOrderDetailsAsync();
 
-        //[HttpGet("GetOrderDetails", Name = "GetOrderDetails")]
-        //public async Task<IEnumerable<OrderDetails>> GetAllOrderDetails() => await _orderApplication.ListOrderDetailsAsync();
-
         [HttpPut(Name = "UpdateOrder")]
         public async Task Update(Order order) => await _orderApplication.UpdateAsync(order);
+
+        [HttpDelete("{id}", Name = "DeleteById")]
+        public async Task DeleteById(string id) => await _orderApplication.DeleteAsync(id);
+
+        [HttpDelete(Name = "DeleteAll")]
+        public async Task DeleteAll () => await _orderApplication.DeleteAllAsync();
     }
 }

@@ -20,10 +20,8 @@ namespace ecom.order.service.Controllers
 
         [HttpPost("", Name = "OrderPaymentPendingJob")]
         public async Task OnExecute()
-        {
-            _logger.LogInformation("!!!!!!!!!!!!!!!!!!scheduled endpoint called in order service!!!!!!!!!!!!!");
+        {   
             var orderProcessed = await _orderApplication.UpdateOrderPaymentPending();
-            _logger.LogInformation($"!!!!!!!!!!!!!!!!!!Payment status updated for {orderProcessed} orders!!!!!!!!!!!!!");
         }
     }
 }

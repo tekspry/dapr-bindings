@@ -28,17 +28,14 @@ namespace ecom.order.application.Order
         public async Task<domain.Order.Order> AddAsync(domain.Order.Order order)
         {   
             var productPrice = await _productService.UpdateProductQuantity(order.ProductId, order.ProductCount);
-            logger.LogInformation($"product quantity updated for product: {order.ProductId}");
             order.OrderId = Guid.NewGuid().ToString();            
             order.OrderState = OrderState.OrderPlaced;
             order.OrderPlacedAt = DateTime.UtcNow;
 
             await _orderRepository.CreateOrder(order);
-            logger.LogInformation($"order created for: {order.OrderId}");
-
+            
             await _daprClient.PublishEventAsync("orderpubsub", "orders", order);
-            logger.LogInformation($"order {order.OrderId} published to orderpubsub component for payment.");
-
+            
             order.OrderState = OrderState.OrderPaymentPending;
             await _orderRepository.UpdateAsync(order); ;
 
@@ -55,10 +52,8 @@ namespace ecom.order.application.Order
         public async Task<int> UpdateOrderPaymentPending()
         {
             var orders = await _orderRepository.GetOrders();
-            logger.LogInformation("scheduled microservice UpdateOrderPaymentPending in application class is called");
             var pendingPaymentOrders = orders.Where(o => o.OrderState == OrderState.OrderPaymentPending).ToList();
-            logger.LogInformation("recieved pending payment orders");
-
+            
             var orderProcessed = pendingPaymentOrders.Count;
             if (orderProcessed > 0)
             {
@@ -69,15 +64,16 @@ namespace ecom.order.application.Order
                     if (ts.TotalMinutes > 1)
                     {
                         order.OrderState = OrderState.OrderPaymentExpired;
-                        logger.LogInformation("update the state to payment expired");
                         await _orderRepository.UpdateAsync(order);
-                        logger.LogInformation("payment expired state updated");
                         var productPrice = await _productService.UpdateProductQuantity(order.ProductId, -order.ProductCount);
-                        logger.LogInformation("product quantity updated");
                     }
                 }
             }
             return orderProcessed;
         }
+
+        public async Task DeleteAsync(string id) => await _orderRepository.DeleteAsync(id);
+        public async Task DeleteAllAsync() => await _orderRepository.DeleteAllAsync(); 
+
     }
 }

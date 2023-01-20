@@ -29,8 +29,7 @@ namespace ecom.order.Extensions
             if (!response.IsSuccessStatusCode)
                 throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
 
-            var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            Console.Write($"from order api ==========> {dataAsString}");
+            var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);            
 
             return JsonSerializer.Deserialize<T>(dataAsString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
         }

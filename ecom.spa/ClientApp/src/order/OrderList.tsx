@@ -36,7 +36,7 @@ const OrderDetailsList = () => {
                         <td>{o.customerDetails.contactNumber}</td>
                         <td>{o.productDetails.name}</td>
                         <td>{o.productDetails.price}</td>
-                        <td>{o.productDetails.quantity}</td>
+                        <td>{o.order.productCount}</td>
                         <td>{OrderState[o.order.orderState]}</td>                       
 
                     </tr>
