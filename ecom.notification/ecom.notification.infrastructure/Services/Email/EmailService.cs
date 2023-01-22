@@ -36,14 +36,9 @@ namespace ecom.notification.infrastructure.Services.Email
                 $"</br>Quantity - {order.OrderDetails.ProductCount}"
                 + $"</br>Thanks, </br>Team TekSpry";
 
-            _logger.LogInformation($"created email body for orderid {order.OrderDetails.OrderId} for {order.CustomerDetails.Email}");
-
-            _logger.LogInformation($"Invoking output binding for sending email from Email service class");
-
             try
             {
                 await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
-                _logger.LogInformation($"Output binding invoked for sending email from Email service class");
             }
             catch (Exception ex)
             {
