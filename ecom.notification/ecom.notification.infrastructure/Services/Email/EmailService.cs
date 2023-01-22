@@ -47,7 +47,7 @@ namespace ecom.notification.infrastructure.Services.Email
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"Error: Output binding invokation failed for sending email from email service");
+                _logger.LogInformation($"Error: {ex.Message}");
             }
             
         }
