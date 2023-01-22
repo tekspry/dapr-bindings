@@ -35,8 +35,7 @@ namespace ecom.notification.application.Notification
             var productDetails = await _productService.GetProductAsync(order.ProductId);
 
             var orderForNotification = new OrderForNotfication(order, customerDetails, productDetails);
-
-            _logger.LogInformation($"Invoking SendEmailForOrder from Notification application class");
+            
             await _emailService.SendEmailForOrder(orderForNotification);
         }
     }
