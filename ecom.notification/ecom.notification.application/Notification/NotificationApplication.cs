@@ -31,21 +31,7 @@ namespace ecom.notification.application.Notification
                 order.CustomerId = "0787e3c6-5886-4c73-bbef-81f5bf79967b";
 
             var customerDetails = await _customerService.GetCustomerAsync(order.CustomerId);
-
-            //var customerDetails = new ecom.notification.domain.Customer.CustomerDetails()
-            //{
-            //    Id = "0787e3c6-5886-4c73-bbef-81f5bf79967b",
-            //    Name = "TestUser1",
-            //    Email = "gagan1983@gmail.com",
-            //    ContactNumber = 1111111111,
-            //    Address = new CustomerAddress()
-            //    {
-            //        Address = "test addr 1",
-            //        City = "New Delhi",
-            //        PostalCode = "123xyz",
-            //        Country = "India"
-            //    }
-            //};
+           
             var productDetails = await _productService.GetProductAsync(order.ProductId);
 
             var orderForNotification = new OrderForNotfication(order, customerDetails, productDetails);
