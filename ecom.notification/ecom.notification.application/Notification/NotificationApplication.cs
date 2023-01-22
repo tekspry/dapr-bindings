@@ -5,7 +5,6 @@ using Dapr.Client;
 using Microsoft.Extensions.Logging;
 using ecom.notification.domain.Notification;
 using ecom.notification.infrastructure.Services.Email;
-using ecom.notification.domain.Customer;
 
 namespace ecom.notification.application.Notification
 {

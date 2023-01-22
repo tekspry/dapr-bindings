@@ -26,20 +26,12 @@ namespace ecom.notification.infrastructure.Extensions
 
         public static async Task<T> ReadContentAs<T>(this HttpResponseMessage response)
         {
-            try 
-            {
-                if (!response.IsSuccessStatusCode)
-                    throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
+            if (!response.IsSuccessStatusCode)
+                throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
 
-                var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-                return JsonSerializer.Deserialize<T>(dataAsString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
-            }
-            catch (Exception ex) {
-                throw new ApplicationException(ex.Message);                
-            
-            }
-            
+            return JsonSerializer.Deserialize<T>(dataAsString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
         }
     }
 }

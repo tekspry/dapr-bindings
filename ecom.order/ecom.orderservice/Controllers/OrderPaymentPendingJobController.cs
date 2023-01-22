@@ -1,5 +1,4 @@
 ﻿using ecom.order.application.Order;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ecom.order.service.Controllers
