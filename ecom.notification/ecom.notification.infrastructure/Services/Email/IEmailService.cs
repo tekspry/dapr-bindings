@@ -4,6 +4,6 @@ namespace ecom.notification.infrastructure.Services.Email
 {
     public interface IEmailService
     {
-        Task SendEmailForOrder(OrderForNotfication order);
+        Task SendEmail(OrderForNotfication order);
     }
 }

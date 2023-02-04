@@ -15,7 +15,7 @@ namespace ecom.notification.infrastructure.Services.Email
             this._logger = logger;
         }
 
-        public async Task SendEmailForOrder(OrderForNotfication order)
+        public async Task SendEmail(OrderForNotfication order)
         {
             _logger.LogInformation($"Received a new order, orderid {order.OrderDetails.OrderId} for {order.CustomerDetails.Email}");
 

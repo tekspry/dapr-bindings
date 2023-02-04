@@ -35,7 +35,7 @@ namespace ecom.notification.application.Notification
 
             var orderForNotification = new OrderForNotfication(order, customerDetails, productDetails);
             
-            await _emailService.SendEmailForOrder(orderForNotification);
+            await _emailService.SendEmail(orderForNotification);
         }
     }
 }
