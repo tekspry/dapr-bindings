@@ -52,21 +52,18 @@ namespace ecom.order.application.Order
         public async Task<int> UpdateOrderPaymentPending()
         {
             var orders = await _orderRepository.GetOrders();
-            var pendingPaymentOrders = orders.Where(o => o.OrderState == OrderState.OrderPaymentPending).ToList();
+            var pendingPaymentOrders = orders.Where(o => o.OrderState == OrderState.OrderPaymentPending 
+                                                    && (DateTime.UtcNow - o.OrderPlacedAt).TotalMinutes > 15).ToList();
             
             var orderProcessed = pendingPaymentOrders.Count;
             if (orderProcessed > 0)
             {
                 foreach (var order in pendingPaymentOrders)
-                {
-                    TimeSpan ts = DateTime.UtcNow - order.OrderPlacedAt;
-
-                    if (ts.TotalMinutes > 1)
-                    {
-                        order.OrderState = OrderState.OrderPaymentExpired;
-                        await _orderRepository.UpdateAsync(order);
-                        var productPrice = await _productService.UpdateProductQuantity(order.ProductId, -order.ProductCount);
-                    }
+                {                    
+                    order.OrderState = OrderState.OrderPaymentExpired;
+                    await _orderRepository.UpdateAsync(order);
+                    var productPrice = await _productService.UpdateProductQuantity(order.ProductId, -order.ProductCount);
+                    
                 }
             }
             return orderProcessed;
