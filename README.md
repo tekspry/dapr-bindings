@@ -11,7 +11,7 @@ This version of the code is using Dapr 1.9
 Open 6 terminal windows. 
 In the `ecom.product.service` folder run `start-product-app.ps1`, inside `ecom.order.service` folder run `start-order-app.ps1`, inside `ecom.payment.service` folder run `start-payment-app.ps1`, inside `ecom.notification.service` folder run `start-notification-app.ps1`, inside `ecom.customer.service` folder run `start-customer-app.ps1` and also run `npm start` in ecom.spa react app. 
 
-## Port Details ##
+### Port Details ###
 The ports used are specified in the PowerShell start up scripts. 
 
 Product service : `http://localhost:5016/` 
