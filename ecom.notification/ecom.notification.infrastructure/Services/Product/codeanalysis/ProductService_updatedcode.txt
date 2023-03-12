@@ -1,0 +1,30 @@
+ 
+using ecom.notification.infrastructure.Extensions;
+
+namespace ecom.notification.infrastructure.Services.Product
+{
+    public class ProductService : IProductService
+    {
+        private readonly HttpClient _client;
+        public ProductService(HttpClient client)
+        {
+            _client = client;
+        }
+        public async Task<domain.Product.Product> GetProductAsync(string productId)
+        {
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                throw new ArgumentException("ProductId cannot be null or empty", nameof(productId));
+            }
+            var response = await _client.GetAsync($"product/{productId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.ReadContentAs<domain.Product.Product>();
+            }
+            else
+            {
+                throw new Exception("Error getting product");
+            }
+        }
+    }
+}

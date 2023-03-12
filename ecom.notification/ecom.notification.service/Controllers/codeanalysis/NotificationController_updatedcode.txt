@@ -1,0 +1,36 @@
+ 
+ using Dapr;
+using ecom.notification.application.Notification;
+using ecom.notification.domain.Order;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ecom.notification.service.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class NotificationController : ControllerBase
+    {
+        private readonly INotificationApplication _NotificationApplication;
+        private readonly ILogger<NotificationController> _logger;
+        public NotificationController(INotificationApplication NotificationApplication, ILogger<NotificationController> logger)
+        {
+            _NotificationApplication = NotificationApplication;
+            _logger = logger;
+        }
+        [HttpPost("", Name = "SubmitOrder")]
+        [Topic("orderpubsub", "payments")]
+        public async Task<IActionResult> Submit(Order order)
+        {   
+            try 
+            { 
+                await _NotificationApplication.SendNotificationAsync(order);
+            } 
+            catch (Exception ex) 
+            { 
+                _logger.LogError(ex, "Failed to send notification"); 
+                return StatusCode(500); 
+            } 
+            return Ok();
+        }
+    }
+}

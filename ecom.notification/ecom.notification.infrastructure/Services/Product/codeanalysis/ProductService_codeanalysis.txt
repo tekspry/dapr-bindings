@@ -1,0 +1,8 @@
+//Positive Points
+•The code is written using the async/await pattern which helps to improve the performance of the application.
+•The code uses the HttpClient class for making HTTP requests which is the recommended approach.
+•The code is well structured and easy to read. 
+
+//Improvement Areas
+•The code should include error handling to ensure that any exceptions are caught and handled appropriately.
+•The code could be refactored to use dependency injection to make it easier to test and maintain.

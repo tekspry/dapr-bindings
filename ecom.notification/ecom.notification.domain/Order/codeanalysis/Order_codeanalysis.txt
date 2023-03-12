@@ -1,0 +1,9 @@
+Positive Points: 
+1. The code is written in a clear and concise way. 
+2. The code is well organized and easy to read. 
+3. The code follows the best practices for C# coding conventions. 
+
+Improvement Areas: 
+1. The code could be more descriptive by adding comments to explain the purpose of each property. 
+2. The code could be improved by adding validation checks for the properties to ensure that the values are valid. 
+3. The code could be improved by adding data annotations to the properties for better data validation.

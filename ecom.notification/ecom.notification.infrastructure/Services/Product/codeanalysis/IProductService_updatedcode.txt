@@ -1,0 +1,13 @@
+ 
+ namespace ecom.notification.infrastructure.Services.Product
+{
+    public interface IProductService
+    {
+        /// <summary>
+        /// Gets the product information asynchronously.
+        /// </summary>
+        /// <param name="productId">The product identifier.</param>
+        /// <returns>The product information.</returns>
+        Task<notification.domain.Product.Product> GetProductAsync(string productId);
+    }
+}

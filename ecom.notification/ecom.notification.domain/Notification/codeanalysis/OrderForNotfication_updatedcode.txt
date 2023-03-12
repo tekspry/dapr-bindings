@@ -1,0 +1,18 @@
+
+namespace ecom.notification.domain.Notification
+{
+    public record OrderForNotfication(Order.Order OrderDetails, Customer.CustomerDetails CustomerDetails, Product.Product ProductDetails)
+    {
+        //Constructor
+        public OrderForNotfication(Order.Order orderDetails, Customer.CustomerDetails customerDetails, Product.Product productDetails)
+        {
+            OrderDetails = orderDetails;
+            CustomerDetails = customerDetails;
+            ProductDetails = productDetails;
+        }
+        //Properties
+        public Order.Order OrderDetails { get; set; }
+        public Customer.CustomerDetails CustomerDetails { get; set; }
+        public Product.Product ProductDetails { get; set; }
+    }
+}
