@@ -1,7 +1,0 @@
-// Positive Points 
-1. The code is well organized and easy to understand. 
-2. The enum values are clear and descriptive. 
-
-// Improvement Areas 
-1. The constant values should be named using PascalCase (e.g. OrderPlaced -> OrderPlaced). 
-2. It would be more descriptive to use the full name of the order state in the enum values (e.g. OrderPlaced -> PlacedOrder).

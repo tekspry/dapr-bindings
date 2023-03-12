@@ -1,7 +1,0 @@
-POSITIVE POINTS
-This code is well organized, with the use of meaningful variable and method names it is easy to understand. The code also makes use of the Microsoft Extensions Logger to log information. 
-
-IMPROVEMENT AREAS
-1. There is no validation for the customer email address. 
-2. The code does not include any comments for better readability. 
-3. The code is missing exception handling for the InvokeBindingAsync method.

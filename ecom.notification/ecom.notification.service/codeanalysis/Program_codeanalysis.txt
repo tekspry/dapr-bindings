@@ -1,8 +1,0 @@
-Positive Points: 
-- The code declares the dependencies for the application in a clear and concise way. 
-- It also sets up the web application pipeline with the required configurations such as HTTPS redirect, CORS, authorization and routing. 
-- The code also uses Swagger and SwaggerUI to document the API endpoints. 
-
-Improvement Areas: 
-- The code could be improved by introducing configuration settings in a separate configuration file. This will make the code more modular and easier to maintain. 
-- The code could also be improved by introducing logging and error handling. This will help to debug any issues that may arise during runtime.

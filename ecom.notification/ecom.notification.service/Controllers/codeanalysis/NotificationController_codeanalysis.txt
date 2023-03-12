@@ -1,9 +1,0 @@
-Positive Points: 
-1. The code is well organized and easy to read. 
-2. Dependency injection is used in the constructor. 
-3. The logger is used to log errors and other information. 
-
-Improvement Areas: 
-1. The controller should be more strongly typed with a view model instead of using an Order object. 
-2. A try/catch block should be added to the Submit method to handle any exceptions that may occur while sending the notification. 
-3. Unit tests should be added to test the functionality of the Submit method.

@@ -1,5 +1,0 @@
-// Positive Points
-The code is well-structured and easy to read. The use of the ? operator after the Id and Address properties indicates that they are nullable, which is a good practice. The Name and Email properties are initialized with an empty string, which is a good practice to prevent null reference exceptions. 
-
-// Improvement Areas
-The ContactNumber property should also be nullable, as not all customers may have a contact number. Additionally, the Name and Email properties should have a maximum length to prevent users from entering too long of values.

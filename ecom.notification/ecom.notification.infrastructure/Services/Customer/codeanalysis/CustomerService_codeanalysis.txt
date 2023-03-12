@@ -1,8 +1,0 @@
-Positive Points: 
-- The code is concise and easy to read. 
-- The constructor of the CustomerService class is taking in a HttpClient as a parameter, which is a good practice. 
-- The code is using the async/await pattern to handle asynchronous operations. 
-
-Improvement Areas: 
-- The code is missing input validation for the customerId parameter. It should be checked to make sure it is not null, empty or whitespace before making the call to the API. 
-- The code should also check the response from the API to make sure it was successful before attempting to deserialize it.
