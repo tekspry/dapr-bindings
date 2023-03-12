@@ -43,21 +43,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.service",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{03E24BC5-C203-4C9C-B6FC-446F319B8CA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.customer.service", "ecom.customer\ecom.customer.service\ecom.customer.service.csproj", "{004CED41-BCD0-4239-9D60-B21B31E9DF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.customer.service", "ecom.customer\ecom.customer.service\ecom.customer.service.csproj", "{004CED41-BCD0-4239-9D60-B21B31E9DF01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.customer.application", "ecom.customer\ecom.customer.application\ecom.customer.application.csproj", "{A8B6E7E8-1075-491C-9A4F-CCC68DB6F017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.customer.application", "ecom.customer\ecom.customer.application\ecom.customer.application.csproj", "{A8B6E7E8-1075-491C-9A4F-CCC68DB6F017}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.customer.domain", "ecom.customer\ecom.customer.domain\ecom.customer.domain.csproj", "{C073F64E-2E96-4E3F-AF17-44520C1D0F73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.customer.domain", "ecom.customer\ecom.customer.domain\ecom.customer.domain.csproj", "{C073F64E-2E96-4E3F-AF17-44520C1D0F73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.customer.database", "ecom.customer\ecom.customer.database\ecom.customer.database.csproj", "{27B1D789-8425-4BAD-BDB6-364075CA21F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.customer.database", "ecom.customer\ecom.customer.database\ecom.customer.database.csproj", "{27B1D789-8425-4BAD-BDB6-364075CA21F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.customer.infrastructure", "ecom.customer\ecom.customer.infrastructure\ecom.customer.infrastructure.csproj", "{1F7DBBE9-245C-4A2E-B893-60476503A688}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.customer.infrastructure", "ecom.customer\ecom.customer.infrastructure\ecom.customer.infrastructure.csproj", "{1F7DBBE9-245C-4A2E-B893-60476503A688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.notification.application", "ecom.notification\ecom.notification.application\ecom.notification.application.csproj", "{D4F35FE7-8202-47B1-874F-39374AA2913B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.application", "ecom.notification\ecom.notification.application\ecom.notification.application.csproj", "{D4F35FE7-8202-47B1-874F-39374AA2913B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.notification.database", "ecom.notification\ecom.notification.database\ecom.notification.database.csproj", "{4AA27761-584E-460A-9912-5474AEF42E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.database", "ecom.notification\ecom.notification.database\ecom.notification.database.csproj", "{4AA27761-584E-460A-9912-5474AEF42E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.notification.infrastructure", "ecom.notification\ecom.notification.infrastructure\ecom.notification.infrastructure.csproj", "{949945CA-62FE-4367-BC7A-960DB6C207DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.infrastructure", "ecom.notification\ecom.notification.infrastructure\ecom.notification.infrastructure.csproj", "{949945CA-62FE-4367-BC7A-960DB6C207DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
