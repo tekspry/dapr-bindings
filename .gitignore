@@ -442,4 +442,4 @@ lerna-debug.log
 Thumbs.db
 
 #code analysis
-/codeanalysis
+*/codeanalysis/

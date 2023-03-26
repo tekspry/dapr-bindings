@@ -1,0 +1,11 @@
+
+using System.Threading.Tasks;
+using ecom.notification.domain;
+
+namespace ecom.notification.infrastructure.Services.Email
+{
+    public interface IEmailService
+    {
+        Task SendEmail(Notification notification);
+    }
+}
