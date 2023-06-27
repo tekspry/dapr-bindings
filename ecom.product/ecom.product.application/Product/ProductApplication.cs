@@ -1,6 +1,7 @@
 ﻿using ecom.product.database.ProductDB;
 using ecom.product.domain.Product;
 using Microsoft.Extensions.Logging;
+using ecom.product.infrastructure.Services.Open_AI;
 
 namespace ecom.product.application.ProductApp
 {
@@ -9,11 +10,13 @@ namespace ecom.product.application.ProductApp
         private readonly IProductRepository _productRepository;
       
         private readonly ILogger<ProductApplication> logger;
-       
-        public ProductApplication(IProductRepository productRepository, ILogger<ProductApplication> logger)
+        private readonly IProductOpenAI _openAI;
+
+        public ProductApplication(IProductRepository productRepository, ILogger<ProductApplication> logger, IProductOpenAI openAI)
         {
             _productRepository = productRepository;            
             this.logger = logger;
+            this._openAI = openAI;
         }
 
         public async Task<domain.Product.Product> GetAsync(string id)
@@ -38,6 +41,9 @@ namespace ecom.product.application.ProductApp
             return await _productRepository.UpdateProduct(product);
         }
 
-
+        public async Task<Product> GenerateProductDescription(Product product)
+        {
+            return await _openAI.GenerateProductDescription(product);            
+        }
     }
 }

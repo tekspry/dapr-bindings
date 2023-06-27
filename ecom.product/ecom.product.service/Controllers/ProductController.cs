@@ -31,6 +31,9 @@ namespace ecom.ProductService.Controllers
 
         [HttpPost("product/{id}/updatequnatity/{quantity}")]
         public Task<int> UpdateProductQuantity(string id, int quantity) => _productApplication.UpdateQuantityAsync(id, quantity);
+        
+        [HttpPost("generateproductdescrtiption")]
+        public async Task<Product> GenerateProductDescription([FromBody] Product productDetails) => await _productApplication.GenerateProductDescription(productDetails);
 
     }
 }

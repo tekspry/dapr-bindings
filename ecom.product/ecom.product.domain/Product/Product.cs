@@ -7,8 +7,9 @@
         public int Price { get; set; }
         public string Seller { get; set; } = String.Empty;
         public string? AvailableSince { get; set; } 
-        public string Description { get; set; } = String.Empty;
+        public string ShortDescription { get; set; } = String.Empty;
         public string ImageUrl { get; set; } = String.Empty;
         public int Quantity { get; set; }
+        public string ProductDescription { get; set; } = String.Empty;
     }
 }

@@ -80,7 +80,7 @@ namespace ecom.product.database.ProductDB
                 Name = "Tent House",
                 Price = 899,
                 AvailableSince = DateTime.Now.AddMonths(-6).ToString("MM/dd/yyyy"),
-                Description = "Peppa pig theme play tent house for kids 5 years and above.",
+                ShortDescription = "Peppa pig theme play tent house for kids 5 years and above.",
                 ImageUrl = "/tenthouse.jpg",
                 Seller = "Toy Store",
                 Quantity = 10
@@ -93,7 +93,7 @@ namespace ecom.product.database.ProductDB
                 Name = "Table Tennis",
                 Price = 595,
                 AvailableSince = DateTime.Now.AddMonths(-9).ToString("MM/dd/yyyy"),
-                Description = "Table Tennis indoor/outdoor for adults and kids.",
+                ShortDescription = "Table Tennis indoor/outdoor for adults and kids.",
                 ImageUrl = "/tabletennis.png",
                 Seller = "Sports Zone",
                 Quantity = 20
@@ -106,7 +106,7 @@ namespace ecom.product.database.ProductDB
                 Name = "Travelling Bag",
                 Price = 499,
                 AvailableSince = DateTime.Now.AddMonths(-2).ToString("MM/dd/yyyy"),
-                Description = "Nylon 55 litres waterproof strolley Duffle Bag.",
+                ShortDescription = "Nylon 55 litres waterproof strolley Duffle Bag.",
                 ImageUrl = "/travellingbag.png",
                 Seller = "Bag Store",
                 Quantity = 30

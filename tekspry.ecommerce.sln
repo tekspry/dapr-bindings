@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.database"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ecom.notification.infrastructure", "ecom.notification\ecom.notification.infrastructure\ecom.notification.infrastructure.csproj", "{949945CA-62FE-4367-BC7A-960DB6C207DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecom.product.infrastructure", "ecom.product\ecom.product.infrastructure\ecom.product.infrastructure.csproj", "{C6777A72-C893-488B-8DCA-1EF9F37CC20E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{949945CA-62FE-4367-BC7A-960DB6C207DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{949945CA-62FE-4367-BC7A-960DB6C207DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{949945CA-62FE-4367-BC7A-960DB6C207DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6777A72-C893-488B-8DCA-1EF9F37CC20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6777A72-C893-488B-8DCA-1EF9F37CC20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6777A72-C893-488B-8DCA-1EF9F37CC20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6777A72-C893-488B-8DCA-1EF9F37CC20E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +186,7 @@ Global
 		{D4F35FE7-8202-47B1-874F-39374AA2913B} = {BB6073A7-FA51-4774-81B3-390F9DB8BB47}
 		{4AA27761-584E-460A-9912-5474AEF42E8E} = {BB6073A7-FA51-4774-81B3-390F9DB8BB47}
 		{949945CA-62FE-4367-BC7A-960DB6C207DA} = {BB6073A7-FA51-4774-81B3-390F9DB8BB47}
+		{C6777A72-C893-488B-8DCA-1EF9F37CC20E} = {8EBC7CF9-E43D-443E-92C9-75351AE7CAD1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B8FE7B4-3310-4A67-BFB5-AF00072220BE}

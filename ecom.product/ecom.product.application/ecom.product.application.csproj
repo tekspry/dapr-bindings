@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ecom.product.database\ecom.product.database.csproj" />
     <ProjectReference Include="..\ecom.product.domain\ecom.product.domain.csproj" />
+    <ProjectReference Include="..\ecom.product.infrastructure\ecom.product.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

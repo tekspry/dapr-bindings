@@ -13,9 +13,10 @@ const ProductAdd = () => {
         price: 0,
         seller: "",
         availableSince: "",
-        description: "",
+        shortDescription: "",
         imageUrl: "",
-        quantity: 0
+        quantity: 0,
+        productDescription: ""
     };
 
     return (

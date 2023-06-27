@@ -4,6 +4,7 @@ import Config from "../config";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import Problem from "../types/problem";
 import { Product } from "../types/product";
+import { ProductForDescriptionGeneration } from "../types/ProductForDescriptionGeneration";
 
 const useFetchProducts = () => {
   return useQuery<Product[], AxiosError>("products",  () =>
@@ -45,4 +46,17 @@ const useDeleteProduct = () => {
   );
 };
 
-export { useFetchProducts, useAddProduct, useFetchProduct, useDeleteProduct};
+const useGenerateProductDescription = () => {
+  
+  return useMutation<AxiosResponse, AxiosError<Problem>, Product>(
+    (p) => axios.post(`${Config.baseProductApiUrl}/product/generateproductdescrtiption`, p),
+    {
+      onSuccess: () => {
+        //queryClient.invalidateQueries("product");
+        //nav("/");
+      },
+    }
+  );
+};
+
+export { useFetchProducts, useAddProduct, useFetchProduct, useDeleteProduct, useGenerateProductDescription};

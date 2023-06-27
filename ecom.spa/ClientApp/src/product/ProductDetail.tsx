@@ -42,7 +42,7 @@ const ProductDetail = () => {
           </h2>
         </div>
         <div className="row">
-          <div className="col-12 mt-3">{data.description}</div>
+          <div className="col-12 mt-3">{data.productDescription}</div>
         </div>  
         <Orders product={data} />    
       </div>

@@ -1,19 +1,51 @@
-import React, { useState } from "react";
-import toBase64 from "../toBase64";
+import React, { useRef, useState, useEffect  } from "react";
 import { Product } from "../types/product";
+import { useGenerateProductDescription } from "../hooks/ProductHooks";
+
 
 type Args = {
     product: Product;
-  submitted: (product: Product) => void;
+    submitted: (product: Product) => void;  
 };
 
 const ProductForm = ({ product, submitted }: Args) => {
-  const [productState, setProductState] = useState({ ...product });
+  const [productState, setProductState] = useState({ ...product });  
+  const [loading, setLoading] = useState(false);
+  const addProductDescription = useGenerateProductDescription();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    // Automatically adjust the height of the textarea on initial render
+    adjustTextareaHeight();
+  }, []);
+
+  useEffect(() => {
+    // Automatically adjust the height of the textarea when product description changes
+    adjustTextareaHeight();
+  }, [productState.productDescription]);
+  
 
   const onSubmit: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
     submitted(productState);
   };
+
+  const onGenerateProductDescription: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    addProductDescription.mutateAsync(productState, {
+      onSuccess: (data) => {
+        setLoading(false);
+        setProductState((prevState)=> ({
+          ...prevState,
+          productDescription: data.data.productDescription.trim('//n//n'),
+        }));
+      },
+    });
+    
+  };
+
+
 
   const onFileSelected = async (
     e: React.ChangeEvent<HTMLInputElement>
@@ -25,6 +57,13 @@ const ProductForm = ({ product, submitted }: Args) => {
         ...productState,        
         imageUrl: await e.target.files[0].name,
       });
+  };
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
   };
 
   return (
@@ -54,13 +93,13 @@ const ProductForm = ({ product, submitted }: Args) => {
         />
       </div>
       <div className="form-group mt-2">
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Short Description</label>
         <textarea
           className="form-control"
           placeholder="Description"
-          value={productState.description}
+          value={productState.shortDescription}
           onChange={(e) =>
-            setProductState({ ...productState, description: e.target.value })
+            setProductState({ ...productState, shortDescription: e.target.value })
           }
         />
       </div>
@@ -97,6 +136,25 @@ const ProductForm = ({ product, submitted }: Args) => {
           onChange={onFileSelected}
         />
       </div>
+      <div className="form-group mt-2">
+        <label htmlFor="description">Product Description</label>
+        <textarea
+          ref={textareaRef}
+          className="form-control"
+          placeholder="Description"
+          value={productState.productDescription}
+          onChange={(e) =>
+            setProductState({ ...productState, productDescription: e.target.value })
+          }
+        />
+         <button
+            className="btn btn-primary mt-2"
+            disabled={!productState.name || !productState.price || loading}
+            onClick={onGenerateProductDescription}
+        >
+        {loading ? "Generating..." : "Generate Product Description"}
+      </button>
+      </div>
       
       <button
         className="btn btn-primary mt-2"
@@ -105,6 +163,11 @@ const ProductForm = ({ product, submitted }: Args) => {
       >
         Submit
       </button>
+      {loading && (
+        <div className="overlay">
+          <div className="loader"></div>
+        </div>
+      )}
     </form>
   );
 };

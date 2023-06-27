@@ -8,6 +8,8 @@ namespace ecom.product.application.ProductApp
         Task<IEnumerable<Product>> ListAsync();
         Task<string> AddAsync(Product product);
         Task<int> UpdateQuantityAsync(string id, int quantity);
-        
+        Task<Product> GenerateProductDescription(Product product);
+
+
     }
 }
